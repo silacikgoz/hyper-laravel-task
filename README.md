@@ -102,3 +102,12 @@ Sepet verileri veri tabanında tutulmaktadır (carts ve cart_items tablolarında
 -   Görev kapsamında belirtilmemesi nedeniyle bir login sistemi oluşturulmamıştır,login sistemi olmadığı için kullanıcı oturumu session ile tutulmaktadır,
 -   Görev kapsamında belirtilmemesi nedeniyle ürün detay sayfası oluşturulmamıştır,
 -   Cache invalidation API tarafındaki değişikliklere duyarlı değildir (TTL çözmektedir).
+
+# Ekran Görüntüleri
+
+-   Anasayfa
+    ![Ana Sayfa](screenshots/anasayfa.png)
+-   Sepet
+    ![Sepet](screenshots/sepet.png)
+-   Sepet Boşken
+    ![Sepet Boşken](screenshots/boş_sepet.png)
