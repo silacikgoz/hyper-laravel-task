@@ -96,3 +96,9 @@ Sepet verileri veri tabanında tutulmaktadır (carts ve cart_items tablolarında
 -   API hata yönetimi : Yanıt başarız olursa loglanır, response içindeki hata mesajı Exception olarak fırlatılır.
 
 -   Logging: Hyper API response'ları laravel loglarına kayıt edilir.
+
+# Bilinen Eksiklikler
+
+-   PDF dosyasında belirtilmemesi nedeniyle bir login sistemi oluşturulmamıştır,login sistemi olmadığı için kullanıcı oturumu session ile tutulmaktadır,
+-   PDF dosyasında belirtilmemesi nedeniyle ürün detay sayfası oluşturulmamıştır,
+-   Cache invalidation API tarafındaki değişikliklere duyarlı değildir (TTL çözmektedir).
