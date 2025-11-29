@@ -54,7 +54,7 @@ php artisan key:generate
 
 -   "http://127.0.0.1:8000/"
 
-# Mimari Yapu
+# Mimari Yapı
 
 Tüm API istekleri HyperApiService'te toplanmıştır.
 
