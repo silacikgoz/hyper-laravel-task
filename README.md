@@ -1,59 +1,98 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# HYPER TEKNOLOJİ - LARAVEL MİNİ UYGULAMA
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Bu proje Hyper Teknoloji teknik mülaka görevi kapsamında geliştirilmiş olup, basit bir ürün listeleme ve sepet yönetimi uygulamasıdır. Uygulama şirket tarafından iletilmiş olan website üzerinden API bağlantıları ile ürünleri çekip minimal kullanıcı arayüzü ile sunmayı amaçlamakta.
 
-## About Laravel
+# Özellikler
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+-   API üzerinden sayfalama ve ürünleri listeleme
+-   Ürünlerin görsellerinin, fiyat bilgilerinin ve açıklamalarının görüntülenmesi
+-   Sepete ürünlerin eklenmesi ve kaldırılması
+-   Toplam sepet tutarının dinamik olarak hesaplanması
+-   Session ID bazlı sepet yönetimi
+-   Cache mekanizması
+-   İstenildiği gibi API iletişiminin backend ile sağlanması
+-   Minimal responsive bir arayüz (İstenildiği gibi herhangi bir framework kullanılmadı)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Kurulum Adımları
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1.Repoyu Klonlayın
+git clone https://github.com/silacikgoz/hyper-laravel-task.git
 
-## Learning Laravel
+2.Bağımlılıkları Yükleyin
+composer install
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+3.Ortam Değerlerini Ayarlayın
+cp .env.example .env
+php artisan key:generate
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-   ".env" içerisine key ve token bilgilerini ekleyin
+    HYPER_API_BASE=https://api.hyperteknoloji.com.tr
+    HYPER_API_KEY=**\*\*\***
+    HYPER_API_TOKEN=**\*\*\***
 
-## Laravel Sponsors
+    4.Veritabanı (XAMPP) Kurulumu
+    Bu proje MySQL veritabanı kullanılarak ve geliştirme ortamında XAMPP kullanılarak çalışmakta.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+-   XAMPP MySQL Sunucusunu Başlatın:
+    ->XAMPP kontorl panelinden Apache ve MySQL'i başlatın
+    ->VS Code üzerinde uygulamada terminal kullanarak mysql -u root -p
+    -> .env dosyasında veritabanı ayarlarını yapın
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=hyper_task
+    DB_USERNAME=root
+    DB_PASSWORD=
 
-### Premium Partners
+    5.Migrations Çalıştırın
+    php artisan migrate
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+    6.Sunucuyu Başlatın
+    php artisan serve
 
-## Contributing
+7. Tarayıcınızdan aşağıdaki adrese gidin
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+-   "http://127.0.0.1:8000/"
 
-## Code of Conduct
+# Mimari Yapu
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Tüm API istekleri HyperApiService'te toplanmıştır.
 
-## Security Vulnerabilities
+-   İstenildiği gibi API Key ve Bearer Token kullanılmıştır.
+-   GET/POST/PUT/DELETE Metofları kullanılmıştır
+-   İstenildiği gibi hata yakalama ve logging yapılmakta
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Cache Mekanizması
 
-## License
+Ürün listeleme API'si sayfalama (pagination) kullandığı için her sayfa farklı bir cache anahtarı ile saklanmakta
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+-   Cache anahtarının yapısı:
+    -> hyper:products:{page}:{perPage}
+
+-   Cache Süresi (TTL) : 5 dakika
+
+Cache mekanizmasının bu şekilde kullanılmasının nedeni aşağıda listelenmiştir:
+
+-   API gecikmelerini azaltmak, performansı artırmak,
+-   API çağrı yükünü azaltmak
+
+# Sepet Sisteminin Tasarımı
+
+Sepet verileri veri tabanında tutulmaktadır (carts ve cart_items tablolarında).
+
+-   Neden veritabanı tercih edildi?
+    -> Session tabanlı olması nedeniyle login olmasa da çalışır.
+    -> Cookie/LocalStorage kullanıcı tarafından silinebildiği için güvenli değil.
+
+# Arayüz
+
+-   Blade template kullanıldı
+-   Mobil için uyumlu, responsive tasarıma sahip.
+-   Herhangi bir framework kullanılmadı(Tailwind/Bootsrap yok)
+-   Ürünlerin görüntülenmesi ve sepet üzerinden değişikliklerin gerçekleştirilebilmesi.
+
+# Teknik Notlar
+
+-   API hata yönetimi : Yanıt başarız olursa loglanır, response içindeki hata mesajı Exception olarak fırlatılır.
+
+-   Logging: Hyper API response'ları laravel loglarına kayıt edilir.
