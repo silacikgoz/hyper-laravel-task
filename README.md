@@ -99,6 +99,6 @@ Sepet verileri veri tabanında tutulmaktadır (carts ve cart_items tablolarında
 
 # Bilinen Eksiklikler
 
--   PDF dosyasında belirtilmemesi nedeniyle bir login sistemi oluşturulmamıştır,login sistemi olmadığı için kullanıcı oturumu session ile tutulmaktadır,
--   PDF dosyasında belirtilmemesi nedeniyle ürün detay sayfası oluşturulmamıştır,
+-   Görev kapsamında belirtilmemesi nedeniyle bir login sistemi oluşturulmamıştır,login sistemi olmadığı için kullanıcı oturumu session ile tutulmaktadır,
+-   Görev kapsamında belirtilmemesi nedeniyle ürün detay sayfası oluşturulmamıştır,
 -   Cache invalidation API tarafındaki değişikliklere duyarlı değildir (TTL çözmektedir).
